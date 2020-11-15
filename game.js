@@ -9,6 +9,21 @@ var vida = 0
 
 var tempo = 15
 
+var tempoCriarMosquito = 1500
+
+var nivel = window.location.search
+nivel = nivel.replace('?','');
+
+//implementando tempos diferentes
+if(nivel === 'normal'){
+    tempoCriarMosquito = 1250
+}else if(nivel === 'dificil'){
+    tempoCriarMosquito = 1000
+}else if(nivel === 'contra'){
+    tempoCriarMosquito = 550
+}else{
+    console.log('erro na seleção de nível')
+}
 
 function ajustaTamanhoJogo(){
      altura = window.innerHeight 

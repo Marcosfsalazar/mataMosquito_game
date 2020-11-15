@@ -8,9 +8,9 @@ function startGame(){
         alert('Selecione um nível!')
         return false;
     }
-    alert(level)
+    window.location.href = 'app.html?' + level
 }
 
 function playAgain(){
-    window.location.href = 'app.html'
+    window.location.href = mainPage
 }

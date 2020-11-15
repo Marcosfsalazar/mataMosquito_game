@@ -5,6 +5,8 @@ var largura = 0
 var posicaoX = 0
 var posicaoY = 0
 
+var vida = 0
+
 function ajustaTamanhoJogo(){
      altura = window.innerHeight 
      largura = window.innerWidth
@@ -14,9 +16,17 @@ ajustaTamanhoJogo()
 
 function randomPosition(){
 
+
     //removendo o mosquito antes de colocar um novo
     if(document.getElementById('mosquito') != null){
         document.getElementById('mosquito').remove()
+
+        if(vida < 3){
+            document.getElementById('vida'+(++vida)).setAttribute('src','image/coracao_vazio.png')
+        }else{
+            window.location.href='game_over.html'
+        }
+
     }
 
     //recebendo valores randomicos com base no tamanho da tela
@@ -36,6 +46,10 @@ function randomPosition(){
     mosquito.style.top = posicaoY + 'px'
     mosquito.style.position = 'absolute'
     mosquito.id = 'mosquito'
+
+    mosquito.onclick = function(){
+        this.remove()
+    }
 
     document.body.appendChild(mosquito)
 

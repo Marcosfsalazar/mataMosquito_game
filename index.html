@@ -11,12 +11,24 @@
 </head>
 
 <body onresize="ajustaTamanhoJogo()">
-    
-    <img src="image/mosca.png" class="mosquito1" alt="">
 
+    <div class="painel">
+        <div class="vida">
+            <img src="image/coracao_vazio.png" alt="">
+            <img src="image/coracao_vazio.png" alt="">
+            <img src="image/coracao_vazio.png" alt="">
+        </div>
+
+        <div class="cronometro">
+            Tempo restante: ?
+        </div>
+    </div>
+    
 
     <script>
-        randomPosition()
+        setInterval(() => {
+            randomPosition()
+        }, 500);
     </script>
 </body>
 

@@ -14,6 +14,11 @@ ajustaTamanhoJogo()
 
 function randomPosition(){
 
+    //removendo o mosquito antes de colocar um novo
+    if(document.getElementById('mosquito') != null){
+        document.getElementById('mosquito').remove()
+    }
+
     //recebendo valores randomicos com base no tamanho da tela
     posicaoX = Math.round(Math.random() * largura) - 90 
     posicaoY = Math.round(Math.random() * altura) - 90 
@@ -26,10 +31,11 @@ function randomPosition(){
     //Criando elemento img e posicionando no body
     var mosquito = document.createElement('img')
     mosquito.src = 'image/mosca.png'
-    mosquito.className = randomSize()
+    mosquito.className = randomSize() + ' ' +randomSide()
     mosquito.style.left = posicaoX + 'px'
     mosquito.style.top = posicaoY + 'px'
     mosquito.style.position = 'absolute'
+    mosquito.id = 'mosquito'
 
     document.body.appendChild(mosquito)
 
@@ -45,5 +51,15 @@ function randomSize(){
             return 'mosquito2'
         case 2:
             return 'mosquito3'
+    }   
+}
+
+function randomSide(){
+    
+    var classe = Math.floor(Math.random()*2)
+    
+    switch(classe){
+        case 1:
+            return 'ladoB'
     }   
 }

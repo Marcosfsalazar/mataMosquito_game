@@ -7,12 +7,27 @@ var posicaoY = 0
 
 var vida = 0
 
+var tempo = 15
+
+
 function ajustaTamanhoJogo(){
      altura = window.innerHeight 
      largura = window.innerWidth
 }
 
 ajustaTamanhoJogo()
+
+var cronometro = setInterval(() => {
+    tempo -= 1
+    if(tempo<0){
+        clearInterval(cronometro)
+        clearInterval(criarMosquito)
+        window.location.href = 'chicken_dinner.html'
+    }else{
+        document.getElementById('cronometro').innerHTML = tempo //inserindo o tempo entre a tag (innerHTML)
+    }
+
+}, 1000);
 
 function randomPosition(){
 
@@ -23,7 +38,7 @@ function randomPosition(){
 
         if(vida < 3){
             document.getElementById('vida'+(++vida)).setAttribute('src','image/coracao_vazio.png')
-        }else{
+        }else if(vida >= 3){
             window.location.href='game_over.html'
         }
 
